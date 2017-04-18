@@ -5,5 +5,6 @@ The mobile application will allow you to generate a technic service of different
 The application will use a web services to get information about users, products, services, comments and so on.
 
 Authors
-Ing. Carlos Avendaño A.
-Ing. Kelwin Payares L.
+Ing. Carlos Avendaño Arango
+Ing. Kelwin Payares Ladeuth
+Ing. Claudio Di Sipio
