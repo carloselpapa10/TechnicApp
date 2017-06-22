@@ -1,0 +1,36 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]='myFormLogin'>
+        <ion-list>
+          <ion-item>
+            <ion-label fixed>Username</ion-label>
+            <ion-input type="text" formControlName="username" name="username"></ion-input>
+          </ion-item>
+
+           <ion-item *ngIf="!myFormLogin.controls.username.valid  && (myFormLogin.controls.username.dirty || submitAttempt)">
+            <p>Please enter a valid username.</p>
+          </ion-item>
+
+          <ion-item>
+            <ion-label fixed>Password</ion-label>
+            <ion-input type="password" formControlName="password" name="password"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="!myFormLogin.controls.password.valid  && (myFormLogin.controls.password.dirty || submitAttempt)">
+            <p>Please enter a valid password.</p>
+          </ion-item>
+        </ion-list>
+    </form>
+    <button ion-button full (click)="save()">Login</button>
+    <button (click)="goToRegister()" ion-button full outline>Or create an account</button>
+    <button (click)="goToRecovery()" ion-button full outline>Recovery Password</button>
+    
+</ion-content>

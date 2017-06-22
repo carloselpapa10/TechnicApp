@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{service.product_name}} - {{service.service}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+<ion-thumbnail item-left>
+    <img src="{{host}}/img/{{service.product_image}}">
+</ion-thumbnail>
+
+<b>ID: </b>{{service.id}} <br>
+<b>Date: </b>{{service.date}}<br>
+<b>Cost: </b>{{service.cost}}<br>
+<b>Payment Method :</b> {{service.payment_method}}<br>
+<b>Status :</b> {{service.status}}<br>
+<b>Technic Data</b><br>
+<b>Name:</b> {{service.technic_name}}<br>
+<b>Phone:</b> {{service.technic_phone}}<br>
+
+<form [formGroup]='myFormService'>
+  <ion-list>
+    <ion-item>
+      <ion-textarea rows="3" formControlName="message" name="message" aria-placeholder="write a message..."></ion-textarea>
+    </ion-item>
+  </ion-list>
+</form>
+<button ion-button full (click)="sendMessage()">Send Message</button>
+</ion-content>

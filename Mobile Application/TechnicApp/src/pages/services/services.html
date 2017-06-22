@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Services</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngIf="services?.length > 0">
+      <div *ngIf="services[0].error == 0">
+        <ion-item ion-item *ngFor="let service of services">
+          <ion-thumbnail item-left>
+            <img src="{{host}}/img/{{service.product_image}}">
+          </ion-thumbnail>
+          <h2><b>{{service.product_name}} ({{service.service}})</b></h2>
+          <p>{{service.date}}</p>
+          <p><b>id:</b> {{service.id}}</p>          
+          <p><b>Status:</b> {{service.status}}</p>
+          <button ion-button clear item-right (click)="selectedItem(service)">View</button>
+        </ion-item>
+      </div>  
+      <p *ngIf="services[0].error == 1">
+        There is not any service!
+      </p>     
+    </ion-list>
+</ion-content>

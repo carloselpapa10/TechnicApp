@@ -25,7 +25,7 @@ echo $t->register($id,$name,$lastname,$username,$password,$phone,$photo,$email,$
 include("database/close_connection.php");
 
 /*
-http://localhost/TechnicAppServer/Register.php?sId=2020&sName=Martha&sLastname=Caro&sUsername=martha&sPassword=123456&sPhone=3003940576&sPhoto=martha.jpg&sEmail=martha@gmail.com&sAddress=Laquila
+http://localhost/TechnicAppServer/Register.php?sId=401020&sName=Claudio&sLastname=DiSipio&sUsername=claudio&sPassword=123456&sPhone=3003940576&sPhoto=martha.jpg&sEmail=martha@gmail.com&sAddress=Laquila&sId_category=1
 */
 ?>
 

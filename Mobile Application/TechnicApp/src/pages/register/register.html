@@ -1,0 +1,85 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+
+<form [formGroup]='myFormRegister'>
+  
+  <ion-item>
+    <ion-label floating>Identification</ion-label>
+    <ion-input type="text" formControlName="id" name="id"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.id.valid  && (myFormRegister.controls.id.dirty || submitAttempt)">
+    <p>Please enter a valid Identification.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" formControlName="name" name="name"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.name.valid  && (myFormRegister.controls.name.dirty || submitAttempt)">
+    <p>Please enter a valid Name.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Lastname</ion-label>
+    <ion-input type="text" formControlName="lastname" name="lastname"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.lastname.valid  && (myFormRegister.controls.lastname.dirty || submitAttempt)">
+    <p>Please enter a valid Lastname.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Username</ion-label>
+    <ion-input type="text" formControlName="username" name="username"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.username.valid  && (myFormRegister.controls.username.dirty || submitAttempt)">
+    <p>Please enter a valid username.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" formControlName="password" name="password"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.password.valid  && (myFormRegister.controls.password.dirty || submitAttempt)">
+    <p>Please enter a valid Password.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" formControlName="email" name="email"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.email.valid  && (myFormRegister.controls.email.dirty || submitAttempt)">
+    <p>Please enter a correct email.</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Choose a category</ion-label>
+      <ion-select formControlName="id_category">
+        <ion-option *ngFor="let item of categoryList" value="{{item.id}}">
+          {{item.name}}
+        </ion-option>          
+      </ion-select>
+  </ion-item>
+
+  <ion-item *ngIf="!myFormRegister.controls.id_category.valid  && (myFormRegister.controls.id_category.dirty || submitAttempt)">
+    <p>Please enter a category.</p>
+  </ion-item>
+  
+</form>
+<button ion-button full color="primary" (click)="save()">Create Account!</button>
+
+</ion-content>

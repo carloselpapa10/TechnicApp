@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngIf="comments?.length > 0">
+      <div *ngIf="comments[0].error == 0">
+          <ion-item ion-item *ngFor="let comment of comments">
+            <ion-thumbnail item-left>
+              <img src="{{host}}/photos/{{comment.user_photo}}">
+            </ion-thumbnail>
+            <h2><b>{{comment.user_name}}</b></h2>
+            <p>{{comment.date}}</p>
+            <p>{{comment.message}}</p>
+            <p><b>Service: </b>{{comment.service_name}} </p>
+            <button *ngIf=" comment.user_id == user.id" ion-button clear item-right (click)="deleteItem(comment)">Delete</button>
+          </ion-item>
+      </div>  
+      <p *ngIf="comments[0].error == 1">
+        There is not any comment related with your category!
+      </p>     
+    </ion-list>
+</ion-content>

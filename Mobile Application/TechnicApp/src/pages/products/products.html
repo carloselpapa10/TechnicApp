@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Products</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>    <!-- myInput.value -->
+    <ion-searchbar #myInput [(ngModel)]="searchProductString" (ionInput)="searchProduct($event)" placeholder="Search" autocorrect="off"></ion-searchbar>
+    <ion-list *ngIf="products?.length > 0">
+      
+      <p *ngIf="products[0].error == 0">
+        <ion-item ion-item *ngFor="let product of products" >
+          <ion-thumbnail item-left>
+            <img src="{{host}}/img/{{product.image}}">
+          </ion-thumbnail>
+          <h2>{{product.name}}</h2>
+          <p>{{product.description}}</p>
+          <button ion-button clear item-right (click)="selectedItem(product)">View</button>
+        </ion-item>
+      </p>   
+      <p *ngIf="products[0].error == 1">
+        There is not any product related with your category!
+      </p>   
+    </ion-list>
+    
+</ion-content>
