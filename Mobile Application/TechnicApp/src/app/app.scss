@@ -14,3 +14,72 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.toolbar-background {
+  background-color: #F0441A;
+}
+
+.toolbar-title-md {
+    padding: 0 1px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.flex-container {
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    contain: strict;
+    .flex-item {
+        width: 100%;
+        display: flex;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        contain: content;
+    }
+}
+
+
+/*La mia form stilizzata*/
+.my-form {
+    ion-list { 
+        margin-bottom: 0px !important;
+        ion-item {
+            border-radius: 10px;
+            margin-bottom: 15px !important;
+            ion-input {
+
+            }
+        }
+    }
+    
+    .buttons-container {
+        button[round] {
+            height: 45px !important;
+            font-size: 16px !important;
+            margin-bottom: 15px;
+        }
+        
+        button[clear] {
+            font-size: 16px !important;
+            color: white !important;
+            text-transform: none;
+            text-decoration: underline;
+        }
+    }
+}
+

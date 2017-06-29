@@ -11,7 +11,7 @@
     <h3>{{product.name}} - {{product.category_name}}</h3>
     <br>
     
-    <form [formGroup]='myFormGenerate' (ngSubmit)="onSubmit(myFormGenerate.value)">
+    <form [formGroup]='myFormGenerate'>
       <ion-item>
         <ion-label>Choose a service</ion-label>
         <!-- [(ngModel)]="serviceType" -->
@@ -42,7 +42,11 @@
         <ion-checkbox color="dark" formControlName="location" (ionChange)="saveLocation($event)"></ion-checkbox>
       </ion-item>
 
-      <button ion-button full >Generate</button>
     </form>
+    <button ion-button block round full (click)="generate_service()" >Generate</button>
+    
+    <ion-item text-wrap no-lines *ngIf="!myFormGenerate.controls.serviceType.valid  && (myFormGenerate.controls.serviceType.dirty || submitAttempt) || !myFormGenerate.controls.paymentMethod.valid  && (myFormGenerate.controls.paymentMethod.dirty || submitAttempt)">
+        <p>You should choose both a service and a Payment Method to generate a new Service.</p>
+    </ion-item>
     
 </ion-content>

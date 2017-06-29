@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{service.product_name}} - {{service.service}}</ion-title>
+    <ion-title>{{service.service}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,25 +9,41 @@
 
 <ion-content padding>
 
-<ion-thumbnail item-left>
+<!--<ion-thumbnail item-left>
     <img src="{{host}}/img/{{service.product_image}}">
-</ion-thumbnail>
+</ion-thumbnail>-->
 
-<b>ID: </b>{{service.id}} <br>
-<b>Date: </b>{{service.date}}<br>
-<b>Cost: </b>{{service.cost}}<br>
-<b>Payment Method :</b> {{service.payment_method}}<br>
-<b>Status :</b> {{service.status}}<br>
-<b>Technic Data</b><br>
-<b>Name:</b> {{service.technic_name}}<br>
-<b>Phone:</b> {{service.technic_phone}}<br>
+<ion-card>
+  <img src="{{host}}/img/{{service.product_image}}">
+  <ion-card-content>
+    <ion-card-title>
+      {{service.product_name}}
+      </ion-card-title>
+    <p>
+      Below there are all the information about the service. <br>
+      <b>ID: </b>{{service.id}} <br>
+      <b>Date: </b>{{service.date}}<br>
+      <b>Cost: </b>{{service.cost}}<br>
+      <b>Payment Method :</b> {{service.payment_method}}<br>
+      <b>Status :</b> {{service.status}}<br>
+      <b>Technic Data</b><br>
+      <b>Name:</b> {{service.technic_name}}<br>
+      <b>Phone:</b> {{service.technic_phone}}<br>
+    </p>
+    <br>
+    <form [formGroup]='myFormService'>
+      <ion-list>
+        <ion-item full>
+          <ion-textarea rows="3" formControlName="message" name="message" aria-placeholder="write a message..."></ion-textarea>
+        </ion-item>
+      </ion-list>
+      <ion-item *ngIf="!myFormService.controls.message.valid  && (myFormService.controls.message.dirty || submitAttempt)">
+        <p>Enter a text...</p>
+      </ion-item>
+    </form>
+    <button ion-button block round full (click)="sendMessage()">Send Message</button>   
+    
+  </ion-card-content>
+</ion-card>
 
-<form [formGroup]='myFormService'>
-  <ion-list>
-    <ion-item>
-      <ion-textarea rows="3" formControlName="message" name="message" aria-placeholder="write a message..."></ion-textarea>
-    </ion-item>
-  </ion-list>
-</form>
-<button ion-button full (click)="sendMessage()">Send Message</button>
 </ion-content>

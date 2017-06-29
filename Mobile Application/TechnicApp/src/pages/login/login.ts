@@ -11,6 +11,8 @@ import { Recovery } from '../recovery/recovery';
 import { Hometab } from '../hometab/hometab';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
+
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -22,10 +24,11 @@ export class Login {
     myFormLogin: FormGroup;
     private myData: any;
     submitAttempt: boolean = false;
+    tDictionary : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private builder: FormBuilder, 
               public loadingCtrl: LoadingController, public auth: Auth, public storage: Storage, 
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController, public sDictionary: DictionaryService) {
 
                 console.log("constructor");
         this.myFormLogin = builder.group({
@@ -39,9 +42,11 @@ export class Login {
                 elements[key].style.display = 'none';
             });
         }
-
+        
         this.autoLogin();
         //logger
+        this.tDictionary = sDictionary;
+        console.log(sDictionary);
   }
 
   ionViewDidLoad() {
@@ -93,24 +98,27 @@ export class Login {
   
   showAlertLogin() {
     let alert = this.alertCtrl.create({
-      title: 'Login',
-      subTitle: 'Error! username or password wrong...',
+      title: this.sDictionary.get("LOGIN"),
+      subTitle: this.sDictionary.get("PASSWORD_WRONG"),
       buttons: ['OK']
     });
     alert.present();
   }
   
-  autoLogin(){
-    this.presentLoading(); 
+  autoLogin(){   
 
     this.storage.ready().then(() => {      
        this.storage.get('user').then((val) => {
-          if(val != "")
-          this.navCtrl.setRoot(Hometab);
+          
+          if(val != ""){
+            this.presentLoading(); 
+              this.navCtrl.setRoot(Hometab);
+            this.loader.dismiss();
+          }
+          
        })
      });
-
-    this.loader.dismiss();
+    
   }
   
   goToRegister(){

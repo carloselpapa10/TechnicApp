@@ -1,85 +1,87 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Register</ion-title>
+  <ion-navbar *ngIf="tDictionary.dictionary != null">
+    <ion-title>{{tDictionary.dictionary.REGISTER}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 <ion-content padding>
 
-<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>
+<!--<p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
 
-<form [formGroup]='myFormRegister'>
-  
-  <ion-item>
-    <ion-label floating>Identification</ion-label>
-    <ion-input type="text" formControlName="id" name="id"></ion-input>
-  </ion-item>
 
-  <ion-item *ngIf="!myFormRegister.controls.id.valid  && (myFormRegister.controls.id.dirty || submitAttempt)">
-    <p>Please enter a valid Identification.</p>
-  </ion-item>
+<div class="full-height">
+  <div class="flex-item my-form" *ngIf="tDictionary.dictionary != null">
+    
+    <form [formGroup]='myFormRegister'>
+      
+      <ion-list no-lines>
+        <ion-item>
+          <ion-input type="text" formControlName="id" placeholder="{{tDictionary.dictionary.IDENTIFICATION}}" name="id"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input type="text" formControlName="name" name="name"></ion-input>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.id.valid  && (myFormRegister.controls.id.dirty || submitAttempt)">
+            {{tDictionary.dictionary.REG_ID_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.name.valid  && (myFormRegister.controls.name.dirty || submitAttempt)">
-    <p>Please enter a valid Name.</p>
-  </ion-item>
+        <ion-item>
+          <ion-input type="text" formControlName="name" placeholder="{{tDictionary.dictionary.NAME}}"  name="name"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Lastname</ion-label>
-    <ion-input type="text" formControlName="lastname" name="lastname"></ion-input>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.name.valid  && (myFormRegister.controls.name.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_NAME_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.lastname.valid  && (myFormRegister.controls.lastname.dirty || submitAttempt)">
-    <p>Please enter a valid Lastname.</p>
-  </ion-item>
+        <ion-item>
+          <ion-input type="text" formControlName="lastname" placeholder="{{tDictionary.dictionary.LASTNAME}}" name="lastname"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text" formControlName="username" name="username"></ion-input>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.lastname.valid  && (myFormRegister.controls.lastname.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_LASTNAME_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.username.valid  && (myFormRegister.controls.username.dirty || submitAttempt)">
-    <p>Please enter a valid username.</p>
-  </ion-item>
+        <ion-item>
+          <ion-input type="text" formControlName="username" placeholder="{{tDictionary.dictionary.USERNAME}}" name="username"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" formControlName="password" name="password"></ion-input>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.username.valid  && (myFormRegister.controls.username.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_USERNAME_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.password.valid  && (myFormRegister.controls.password.dirty || submitAttempt)">
-    <p>Please enter a valid Password.</p>
-  </ion-item>
+        <ion-item>
+          <ion-input type="password" formControlName="password" placeholder="{{tDictionary.dictionary.PASSWORD}}" name="password"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" formControlName="email" name="email"></ion-input>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.password.valid  && (myFormRegister.controls.password.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_PASSWORD_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.email.valid  && (myFormRegister.controls.email.dirty || submitAttempt)">
-    <p>Please enter a correct email.</p>
-  </ion-item>
+        <ion-item>
+          <ion-input type="email" formControlName="email" placeholder="{{tDictionary.dictionary.EMAIL}}" name="email"></ion-input>
+        </ion-item>
 
-  <ion-item>
-    <ion-label floating>Choose a category</ion-label>
-      <ion-select formControlName="id_category">
-        <ion-option *ngFor="let item of categoryList" value="{{item.id}}">
-          {{item.name}}
-        </ion-option>          
-      </ion-select>
-  </ion-item>
+        <p *ngIf="!myFormRegister.controls.email.valid  && (myFormRegister.controls.email.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_EMAIL_VALIDATION}}
+        </p>
 
-  <ion-item *ngIf="!myFormRegister.controls.id_category.valid  && (myFormRegister.controls.id_category.dirty || submitAttempt)">
-    <p>Please enter a category.</p>
-  </ion-item>
-  
-</form>
-<button ion-button full color="primary" (click)="save()">Create Account!</button>
+        <ion-item>
+          <ion-label floating>{{tDictionary.dictionary.CHOOSE_CATEGORY}}</ion-label>
+            <ion-select formControlName="id_category">
+              <ion-option *ngFor="let item of categoryList" value="{{item.id}}">
+                {{item.name}}
+              </ion-option>          
+            </ion-select>
+        </ion-item>
+
+        <p *ngIf="!myFormRegister.controls.id_category.valid  && (myFormRegister.controls.id_category.dirty || submitAttempt)">
+          {{tDictionary.dictionary.REG_CATEGORY_VALIDATION}}
+        </p>
+      </ion-list>
+      
+    </form>
+    <button ion-button block round full color="primary" (click)="save()">{{tDictionary.dictionary.CREATE_ACCOUNT_2}}</button>
+  </div>
+</div>
 
 </ion-content>

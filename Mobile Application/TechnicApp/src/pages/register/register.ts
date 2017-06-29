@@ -9,6 +9,8 @@ import { Auth } from '../../providers/auth';
 import { UsernameValidator } from  '../../validators/username';
 import { EmailValidator }    from  '../../validators/email-validator';
 
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
+
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -20,8 +22,11 @@ export class Register {
   categoryList : any;
   submitAttempt: boolean = false;
 
+  tDictionary : any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private builder: FormBuilder,
-              private auth: Auth,public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+              private auth: Auth,public loadingCtrl: LoadingController, public alertCtrl: AlertController,
+              public sDictionary: DictionaryService) {
                 
     this.myFormRegister = builder.group({
           'id': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(10) ,Validators.required, Validators.pattern('([0-9]*)')])],
@@ -39,6 +44,7 @@ export class Register {
             console.log(data);
           });
 
+          this.tDictionary = sDictionary;
   }
 
   ionViewDidLoad() {

@@ -6,7 +6,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content text-wrap padding>
     <ion-list *ngIf="comments?.length > 0">
       <div *ngIf="comments[0].error == 0">
           <ion-item ion-item *ngFor="let comment of comments">

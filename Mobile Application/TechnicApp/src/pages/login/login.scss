@@ -1,3 +1,28 @@
 page-login {
 
+    .button-outline-md {
+        border-width: 0px;
+        border-style: none;
+        border-color: #F0441A;  
+        color: #F0441A;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    ion-content {
+        /*background-color: map-get($colors, secondary) !important;
+        background-color: #F0441A;*/
+        background: url("../assets/images/background.png");
+        background-size: 100%;
+    }
+    
+    .logo-container {
+        text-align: center;
+        img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+        }
+    }
+
 }

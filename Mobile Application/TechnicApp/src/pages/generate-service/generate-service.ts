@@ -3,10 +3,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Generate } from '../../providers/generate';
 import { FileChooser } from '@ionic-native/file-chooser';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Geolocation } from '@ionic-native/geolocation';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UUID } from 'angular2-uuid';
         
@@ -22,18 +23,21 @@ export class GenerateService {
     product : any;
     uri : any;
     myFormGenerate: FormGroup;
+
     myIcon: string = "md-add-circle";
     coords_location = "";
     imageName : any;
     location : any;
+
+    submitAttempt: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public generate: Generate, 
               private fileChooser: FileChooser, private builder: FormBuilder,private geolocation: Geolocation,
               public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
 
      this.myFormGenerate = builder.group({
-          'serviceType': '',
-          'paymentMethod': '',
+          'serviceType': ['', Validators.compose([Validators.required])],
+          'paymentMethod': ['', Validators.compose([Validators.required])],
           'location': false
         });
 
@@ -74,16 +78,25 @@ export class GenerateService {
     }
   }
 
-  onSubmit(formData){
+  generate_service(formData){
       console.log(formData);   
       this.imageName = ''; 
 
-      if(!formData.location) this.coords_location="";
-      if(this.uri != null) this.generate.upload(this.uri,this.imageName = UUID.UUID()+".jpg");
+      this.submitAttempt = true;
+
+      if(!this.myFormGenerate.valid){
+        console.log("it is not valid");
+        return null;
+      } 
+
+      //this.myFormRegister.controls.id.value
+
+      if(! this.myFormGenerate.controls.location.value) this.coords_location="";
+      if(this.myFormGenerate.controls.location.value != null) this.generate.upload(this.uri,this.imageName = UUID.UUID()+".jpg");
       
       this.presentLoading();
       setTimeout(() => {
-          this.generate.generateService(formData.paymentMethod,formData.serviceType,this.imageName,this.coords_location,this.product.id).subscribe(
+          this.generate.generateService(this.myFormGenerate.controls.paymentMethod.value,this.myFormGenerate.controls.serviceType.value,this.imageName,this.coords_location,this.product.id).subscribe(
                 data => {
                     console.log(data);
                     if(data=='0'){

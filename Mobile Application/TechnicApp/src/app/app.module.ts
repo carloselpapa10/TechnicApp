@@ -33,6 +33,9 @@ import { Service } from '../providers/service';
 import { Comment } from '../providers/comment';
 import { SettingProvider } from '../providers/setting-provider';
 
+//My Modules
+import {DictionaryModule} from '../modules/dictionary/dictionary.module'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -50,6 +53,7 @@ import { SettingProvider } from '../providers/setting-provider';
   imports: [
     BrowserModule,
     HttpModule,
+    DictionaryModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot()
   ],

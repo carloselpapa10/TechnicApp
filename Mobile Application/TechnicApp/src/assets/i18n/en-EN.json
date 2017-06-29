@@ -1,0 +1,72 @@
+{
+    "APP_NAME": "TechnicApp",
+
+    "LOGIN": "Login",
+    "PASSWORD_WRONG": "Error! username or password wrong...",
+    "CREATE_ACCOUNT_1":"OR CREATE AN ACCOUNT",
+    "RECOVERY_PASS":"RECOVERY PASSWORD",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    
+    "REGISTER": "Register",
+    "IDENTIFICATION" : "Identification",
+    "NAME" : "Name",
+    "LASTNAME" : "Lastname",
+    "EMAIL": "Email",
+    "CHOOSE_CATEGORY": "Choose a Category",
+    "CREATE_ACCOUNT_2": "CREATE ACCOUNT!",
+
+    "RECOVERY" : "RECOVERY", 
+
+    "REG_ID_VALIDATION":"Please enter a valid Identification.",
+    "REG_NAME_VALIDATION":"Please enter a valid Name.",
+    "REG_LASTNAME_VALIDATION":"Please enter a valid Lastname.",
+    "REG_USERNAME_VALIDATION":"Please enter a valid username.",
+    "REG_PASSWORD_VALIDATION":"Please enter a valid Password.",
+    "REG_EMAIL_VALIDATION":"Please enter a correct email.",
+    "REG_CATEGORY_VALIDATION":"Please enter a category.",
+    
+    "OK": "ok",
+    "SI": "yes",
+    "NO": "no",
+    
+    "HOME": "Home",
+    "PROFILE": "Profile",
+    
+    
+    
+    "FIRSTNAME": "Firstname",
+    "LANGUAGE": "Language",
+    
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "CANCEL": "Cancel",
+    "ADD": "Add",
+    "SAVE": "Save",
+    
+    "TASKS": "Tasks",
+    "TASKS_COMPLETED": "Tasks Completed",
+    "NEW_TASK": "New Task",
+    "EDIT_TASK": "Edit Task",
+    
+    
+    "SIGNUP": "Signup",
+    "BTN_SIGNUP": "Signup",
+    
+    
+    "LOADING_WAITING": "Wait a moment...",
+    
+    "CONFIRM_LOGUOT": "Are you sure you want to log out?",
+    
+    "TEXT_NEW_ACCOUNT": "Register a new account.",
+    "TEXT_SIGNUP_SUCCESS": "Signup successfully, login now.",
+    
+    "WARNING_LOGIN_USERNAME_EMPTY": "Enter the username of your TodoList account.",
+    "WARNING_LOGIN_PASSWORD_EMPTY": "Enter the password.",
+    "WARNING_SIGNUP_USERNAME_EMPTY": "Enter the username.",
+    "WARNING_SIGNUP_EMAIL_EMPTY": "Enter the email.",
+    "WARNING_SIGNUP_PASSWORD_EMPTY": "Enter the password.",
+    
+    "ERROR_LOGIN_USERNAME_PASSWORD": "Incorrect username or passord",
+    "ERROR_PROFILE_SAVE": "You could not save your profile."
+} 

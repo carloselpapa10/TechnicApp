@@ -1,36 +1,36 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 <ion-content padding>
 
-    <form [formGroup]='myFormLogin'>
-        <ion-list>
-          <ion-item>
-            <ion-label fixed>Username</ion-label>
-            <ion-input type="text" formControlName="username" name="username"></ion-input>
-          </ion-item>
+    <div class="full-height">
+        <div class="flex-item my-form" *ngIf="tDictionary.dictionary != null">
+            <br><br><br>
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt=""/>
+            </div>
 
-           <ion-item *ngIf="!myFormLogin.controls.username.valid  && (myFormLogin.controls.username.dirty || submitAttempt)">
-            <p>Please enter a valid username.</p>
-          </ion-item>
+            <form [formGroup]='myFormLogin'>
+              
+              <ion-list no-lines>
+                <ion-item>
+                  <ion-input type="text" formControlName="username"  placeholder="{{tDictionary.dictionary.USERNAME}}" name="username"></ion-input>
+                </ion-item>
 
-          <ion-item>
-            <ion-label fixed>Password</ion-label>
-            <ion-input type="password" formControlName="password" name="password"></ion-input>
-          </ion-item>
+                <ion-item>
+                  <ion-input type="password" formControlName="password" placeholder="{{tDictionary.dictionary.PASSWORD}}" name="password"></ion-input>
+                </ion-item>
 
-          <ion-item *ngIf="!myFormLogin.controls.password.valid  && (myFormLogin.controls.password.dirty || submitAttempt)">
-            <p>Please enter a valid password.</p>
-          </ion-item>
-        </ion-list>
-    </form>
-    <button ion-button full (click)="save()">Login</button>
-    <button (click)="goToRegister()" ion-button full outline>Or create an account</button>
-    <button (click)="goToRecovery()" ion-button full outline>Recovery Password</button>
+                <!--<ion-item *ngIf="!myFormLogin.controls.password.valid  && (myFormLogin.controls.password.dirty || submitAttempt)">
+                  <p>Please enter a valid password.</p>
+                </ion-item>-->
+              </ion-list>
+          </form>
+
+            <div class="buttons-container">
+              <button ion-button block round (click)="save()">{{tDictionary.dictionary.LOGIN}}</button>
+              <button (click)="goToRegister()" ion-button full outline no-lines>{{tDictionary.dictionary.CREATE_ACCOUNT_1}}</button>
+              <button (click)="goToRecovery()" ion-button full outline no-lines>{{tDictionary.dictionary.RECOVERY_PASS}}</button>
+            </div>
+        </div>
+    </div>
     
 </ion-content>

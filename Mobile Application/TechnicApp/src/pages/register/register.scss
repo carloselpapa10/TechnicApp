@@ -1,7 +1,7 @@
 page-register {
     p {
             font-size: 0.8em;
-            color: #d2d2d2;
+            color: white;
         }
  
         .swiper-slide {
@@ -13,11 +13,18 @@ page-register {
         }
  
         ion-input, ion-select, ion-textarea {
-            background-color: #f2f2f2;
-            padding: 5px 10px;
+            /**background-color: #f2f2f2;
+            padding: 5px 10px;*/
         }
  
         .invalid {
             border: 1px solid #ea6153;
         }
+
+    ion-content {
+        /*background-color: map-get($colors, secondary) !important;
+        background-color: #F0441A;*/
+        background: url("../assets/images/background.png");
+        background-size: 100%;
+    }
 }

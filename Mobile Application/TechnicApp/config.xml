@@ -87,4 +87,5 @@
     <plugin name="com.megster.cordova.FileChooser" spec="http://github.com/don/cordova-filechooser.git" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
     <plugin name="cordova-plugin-geolocation" spec="~2.4.3" />
+    <plugin name="cordova-plugin-globalization" spec="~1.0.7" />
 </widget>

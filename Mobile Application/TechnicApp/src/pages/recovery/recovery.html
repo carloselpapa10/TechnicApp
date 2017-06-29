@@ -15,4 +15,23 @@
 
 <ion-content padding>
 
+  <div class="full-height">
+  <div class="flex-item my-form">
+
+    <form [formGroup]='myFormRecovery'>
+      <ion-list no-lines>
+          <ion-item>
+            <ion-input type="text" formControlName="username" placeholder="USERNAME" name="username"></ion-input>
+          </ion-item>
+      </ion-list>
+    </form>
+
+    <button ion-button block round full color="primary" (click)="recovery_password()">Recovery</button>
+
+    <p *ngIf="!myFormRecovery.controls.username.valid  && (myFormRecovery.controls.username.dirty || submitAttempt)">
+      Please enter a valid password.
+    </p>
+  </div>
+</div>
+
 </ion-content>
