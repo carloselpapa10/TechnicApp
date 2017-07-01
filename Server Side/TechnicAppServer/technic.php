@@ -256,6 +256,28 @@ class technic{
 		}
 	}
 	
+	public function changePassword($id, $password1, $password2){
+		
+		$query = "UPDATE `user` SET `password`='$password2' WHERE `password`='$password1' AND `id`='$id'";
+		$peticion = mysql_query($query);
+		if (!$peticion) {
+			return -1;
+		}else{
+			return 0;
+		}		
+	}
+	
+	
+	public function changePhoto($id, $image){
+		
+		$query = "UPDATE `user` SET `photo`='$image' WHERE `id`='$id'";
+		$peticion = mysql_query($query);
+		if (!$peticion) {
+			return -1;
+		}else{
+			return 0;
+		}		
+	}
 }
 	function generaPass() {
 		//Se define una cadena de caractares. Te recomiendo que uses esta.

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2017 a las 17:01:23
+-- Tiempo de generación: 01-07-2017 a las 11:10:05
 -- Versión del servidor: 5.6.24
 -- Versión de PHP: 5.6.8
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `attention_service` (
   `id_technic` varchar(20) DEFAULT NULL,
   `id_product` int(11) DEFAULT NULL,
   `status` enum('0','1','2','3') DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `attention_service`
@@ -70,7 +70,15 @@ INSERT INTO `attention_service` (`id`, `payment_method`, `cost`, `date`, `servic
 (28, '1', NULL, '2017-05-18', 'w', '', 'latitude =>42.3594877 longitude =>13.398651', '1122', NULL, 5, '0'),
 (29, '1', NULL, '2017-05-27', 'r', '4a3432d7-dd91-504e-e97b-cbd88f204ae4.jpg', 'latitude =>42.3594877 longitude =>13.398651', '2020', NULL, 6, '0'),
 (30, '0', NULL, '2017-06-07', 'r', 'b71d9659-0fa9-a944-37de-75ee2073f09f.jpg', 'latitude =>42.3594877 longitude =>13.398651', '10827', NULL, 6, '0'),
-(31, '1', NULL, '2017-06-22', 'r', '474f9b59-d3e8-e5bc-f53d-adf76f1b4002.jpg', 'latitude =>42.3594798 longitude =>13.3986383', '123434', NULL, 3, '0');
+(31, '1', NULL, '2017-06-22', 'r', '474f9b59-d3e8-e5bc-f53d-adf76f1b4002.jpg', 'latitude =>42.3594798 longitude =>13.3986383', '123434', NULL, 3, '0'),
+(32, '0', NULL, '2017-06-26', 'r', 'ba2e697b-e1e2-5c96-607e-25d583c55276.jpg', '', '2020', NULL, 1, '0'),
+(33, '0', NULL, '2017-06-26', 'r', 'c3991c0e-8df4-719f-5e24-1355a004b728.jpg', 'latitude =>42.3485583 longitude =>13.4059714', '2020', '3030', 2, '2'),
+(34, '0', NULL, '2017-06-30', 'r', 'b1f42435-ba66-1bf2-0cb4-91f795b2ebfc.jpg', '', '2020', NULL, 1, '0'),
+(35, '0', NULL, '2017-06-30', 'i', '25afc2f0-524a-3e77-2d38-23c427273b64.jpg', 'latitude =>42.3594798 longitude =>13.3986383', '2020', NULL, 3, '0'),
+(36, '1', NULL, '2017-06-30', 'r', '9fa69f35-6d15-a8ee-af34-6fa525909733.jpg', '', '2020', NULL, 1, '0'),
+(37, '1', NULL, '2017-06-30', 'r', 'a5c79552-8a49-afed-79c4-58be9f523eda.jpg', '', '2020', NULL, 1, '0'),
+(38, '0', NULL, '2017-06-30', 'r', '095a7507-bf60-3319-5cf2-135d5be9bc8a.jpg', '', '10829', NULL, 2, '0'),
+(39, '1', NULL, '2017-07-01', 'i', '2ed6d4eb-5884-8d13-edaf-78038f4fb1d0.jpg', 'latitude =>42.3585608 longitude =>13.4015138', '2020', NULL, 6, '0');
 
 -- --------------------------------------------------------
 
@@ -90,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `description`, `status`) VALUES
-(1, 'Technology', 'Computer description', 'A'),
-(2, 'Women cosmetic', 'Women cosmetic description', 'A');
+(1, 'Hardware', 'Hardware description', 'A'),
+(2, 'Software', 'Software description', 'A');
 
 -- --------------------------------------------------------
 
@@ -106,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `id_user` varchar(50) DEFAULT NULL,
   `id_attention_service` int(11) DEFAULT NULL,
   `status` enum('A','I') NOT NULL DEFAULT 'A'
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comment`
@@ -122,7 +130,12 @@ INSERT INTO `comment` (`id`, `message`, `date`, `id_user`, `id_attention_service
 (10, 'this is a new comment', '2017-05-27', '2020', 18, 'A'),
 (11, 'test the app', '2017-05-27', '2020', 24, 'A'),
 (12, 'hi to all...', '2017-06-07', '10827', 30, 'A'),
-(13, 'helooo sjssjsjsj shsbshs shs ', '2017-06-22', '123434', 31, 'I');
+(13, 'helooo sjssjsjsj shsbshs shs ', '2017-06-22', '123434', 31, 'I'),
+(14, 'eversoon bien', '2017-06-26', '2020', 33, 'A'),
+(15, 'Ghjjj', '2017-06-29', '2020', 33, 'I'),
+(16, 'Lea is here', '2017-06-30', '2020', 35, 'I'),
+(17, 'Lea is here', '2017-06-30', '2020', 35, 'A'),
+(18, 'When will you come?', '2017-06-30', '10829', 38, 'A');
 
 -- --------------------------------------------------------
 
@@ -201,11 +214,12 @@ CREATE TABLE IF NOT EXISTS `user` (
 INSERT INTO `user` (`id`, `name`, `lastname`, `username`, `password`, `phone`, `photo`, `email`, `address`, `user_type`, `id_category`, `status`) VALUES
 ('10203040', 'ricardo', 'avendano', 'ricar', 'e10adc3949ba59abbe56e057f20f883e', '', 'fotoDefecto.png', 'ricar@gmail.com', 'LAquila', 'P', 1, 'A'),
 ('10827', 'lope', 'lope', 'lope', 'e10adc3949ba59abbe56e057f20f883e', '', 'fotoDefecto.png', 'c.avendano10@gmail.com', 'LAquila', 'P', 1, 'A'),
+('10829', 'kelwin', 'payares', 'stevenxs', 'c33367701511b4f6020ec61ded352059', '', 'kelwin.jpg', 'stevin_2209@hotmail.com', 'LAquila', 'P', 1, 'A'),
 ('1082941566', 'Carlos', 'Avendano', 'carloselpapa', 'e10adc3949ba59abbe56e057f20f883e', '3003940576', 'Carlos.jpg', 'c.avendano10@gmail.com', 'L''Aquila', 'P', 1, 'A'),
 ('1122', 'charlos', 'pendeho', 'charlotte', 'cfcd208495d565ef66e7dff9f98764da', '', 'fotoDefecto.png', 'charlos@fucker.in', 'LAquila', 'P', 1, 'A'),
 ('123434', 'pepo', 'pepo', 'pepo', 'e10adc3949ba59abbe56e057f20f883e', '', 'fotoDefecto.png', 'carlosaven-10@hotmail.com', 'LAquila', 'P', 1, 'A'),
 ('123456', 'ana', 'sofia', 'sofia', 'e10adc3949ba59abbe56e057f20f883e', '', 'fotoDefecto.png', 'anasofia@gmail.com', 'LAquila', 'P', 2, 'A'),
-('2020', 'Martha', 'Caro', 'martha', 'e10adc3949ba59abbe56e057f20f883e', '3003940576', 'fotoDefecto.png', 'martha@gmail.com', 'Laquila', 'P', 1, 'A'),
+('2020', 'Martha', 'Caro', 'martha', 'c33367701511b4f6020ec61ded352059', '3003940576', '66f1a7d5-27c2-9654-817e-fc92d714af42.jpg', 'martha@gmail.com', 'Laquila', 'P', 1, 'A'),
 ('3030', 'Martha', 'Caro', 'martha20', 'e10adc3949ba59abbe56e057f20f883e', '3003940576', 'martha.jpg', 'martha@gmail.com', 'Laquila', 'T', 1, 'A'),
 ('401020', 'Claudio', 'DiSipio', 'claudio', 'e10adc3949ba59abbe56e057f20f883e', '3003940576', 'martha.jpg', 'martha@gmail.com', 'Laquila', 'P', 1, 'A'),
 ('5555', 'mirian', 'arango', 'mirian', 'e10adc3949ba59abbe56e057f20f883e', '', 'fotoDefecto.png', 'miriab@gmail.com', 'LAquila', 'P', 1, 'A'),
@@ -261,7 +275,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `attention_service`
 --
 ALTER TABLE `attention_service`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT de la tabla `category`
 --
@@ -271,7 +285,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `product`
 --
