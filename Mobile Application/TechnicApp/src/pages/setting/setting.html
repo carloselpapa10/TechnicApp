@@ -1,25 +1,34 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Setting</ion-title>
+    <ion-title>{{tDictionary.dictionary.TITLE_SETTING}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <ion-card>
+<ion-content padding >
+
+  <ion-item *ngIf=" user != null">
+     <ion-thumbnail item-left>
+       <img src="{{host}}/photos/{{user.photo}}">
+     </ion-thumbnail>
+     <h2>{{user.name}} {{user.lastname}}</h2>
+     <p>{{user.username}}</p>
+  </ion-item>
+
+  <button ion-item (click)="takeImage()">
+        <ion-icon [name]="myIcon"></ion-icon>
+        {{tDictionary.dictionary.CHANGE_PRO_PIC}}
+  </button>
+
+  <button ion-item (click)="changePassword()">
+      <ion-icon [name]="passIcon"></ion-icon>      
+      {{tDictionary.dictionary.TITLE_CHANGE_PASS_PAGE}}
+  </button>
 
     <ion-item *ngIf=" user != null">
-      <ion-avatar item-left>
-        <img src="{{host}}/photos/{{user.photo}}">
-      </ion-avatar>
-      <h2>{{user.name}} {{user.lastname}}</h2>
-      <p>{{user.username}}</p>
-    </ion-item>
-
-    <ion-item *ngIf=" user != null">
-        <ion-label>Change of category</ion-label>
+        <ion-label>{{tDictionary.dictionary.CHANGE_CATEGORY}}</ion-label>
         <ion-select [(ngModel)]="id_category" (ngModelChange)="onChangeCategory($event)">
           <ion-option *ngFor="let item of categoryList" value="{{item.id}}" [selected]=" item.id == user.id_category">
             {{item.name}}
@@ -28,7 +37,5 @@
 
     </ion-item>
     
-  </ion-card>
-
-    <button (click)="logout()" ion-button full outline>Logout</button>
+    <button ion-button block round (click)="logout()">{{tDictionary.dictionary.BTN_LOGOUT}}</button>
 </ion-content>

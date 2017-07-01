@@ -7,6 +7,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
+
 @IonicPage()
 @Component({
   selector: 'page-service-page',
@@ -20,10 +22,11 @@ export class ServicePage {
   user : any;
   myFormService: FormGroup;
   submitAttempt: boolean = false;
+  tDictionary : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private serviceProvider : Service, 
     public storage: Storage, private builder: FormBuilder, public loadingCtrl: LoadingController, 
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController, public sDictionary: DictionaryService) {
     this.service = navParams.get('service');
 
     storage.ready().then(() => {
@@ -40,6 +43,8 @@ export class ServicePage {
      this.myFormService = builder.group({
           'message': ['', Validators.compose([Validators.required])]
         });
+      
+     this.tDictionary = sDictionary;
   }
 
   ionViewDidLoad() {
@@ -62,17 +67,17 @@ export class ServicePage {
         console.log(data);
         if(data=='0'){
           let alert = this.alertCtrl.create({
-            title: 'Service!',
-            subTitle: 'The message has been sent!',
-            buttons: ['OK']
+            title: this.tDictionary.get("TEXT_SERVICE"),
+            subTitle: this.tDictionary.get("MSG_SERVIC_YES"),
+            buttons: [this.tDictionary.get("OKC")]
           });
           alert.present();
           this.navCtrl.pop();
         }else{
           let alert = this.alertCtrl.create({
-            title: 'Service!',
-            subTitle: 'Error! The message has not been sent!',
-            buttons: ['OK']
+            title: this.tDictionary.get("TEXT_SERVICE"),
+            subTitle: this.tDictionary.get("MSG_SERVIC_NO"),
+            buttons: [this.tDictionary.get("OKC")]
           });
           alert.present();
           this.navCtrl.pop();
@@ -83,7 +88,7 @@ export class ServicePage {
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      content: this.tDictionary.get("WAIT"),
       duration: 2000
     });
     loader.present();

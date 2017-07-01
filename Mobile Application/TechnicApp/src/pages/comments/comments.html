@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Comments</ion-title>
+    <ion-title>{{tDictionary.dictionary.TITLE_COMMENT}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -17,11 +17,11 @@
             <p>{{comment.date}}</p>
             <p>{{comment.message}}</p>
             <p><b>Service: </b>{{comment.service_name}} </p>
-            <button *ngIf=" comment.user_id == user.id" ion-button clear item-right (click)="deleteItem(comment)">Delete</button>
+            <button *ngIf=" comment.user_id == user.id" ion-button clear item-right (click)="deleteItem(comment)">{{tDictionary.dictionary.DELETE_COMMENT}}</button>
           </ion-item>
       </div>  
       <p *ngIf="comments[0].error == 1">
-        There is not any comment related with your category!
+        {{tDictionary.dictionary.NO_COMMENT}}
       </p>     
     </ion-list>
 </ion-content>

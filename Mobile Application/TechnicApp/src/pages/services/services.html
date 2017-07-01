@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>My Services</ion-title>
+    <ion-title>{{tDictionary.dictionary.MY_SERVIC}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,12 +16,12 @@
           <h2><b>{{service.product_name}} ({{service.service}})</b></h2>
           <p>{{service.date}}</p>
           <p><b>id:</b> {{service.id}}</p>          
-          <p><b>Status:</b> {{service.status}}</p>
-          <button ion-button clear item-right (click)="selectedItem(service)">View</button>
+          <p><b>{{tDictionary.dictionary.TEXT_STATUS}}:</b> {{service.status}}</p>
+          <button ion-button clear item-right (click)="selectedItem(service)">{{tDictionary.dictionary.VIEW}}</button>
         </ion-item>
       </div>  
       <p *ngIf="services[0].error == 1">
-        There is not any service!
+        {{tDictionary.dictionary.EMPTY_SERVICES}}
       </p>     
     </ion-list>
 </ion-content>

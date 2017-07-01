@@ -5,13 +5,9 @@ import { Products } from '../products/products';
 import { Services } from '../services/services';
 import { Comments } from '../comments/comments';
 import { Setting } from '../setting/setting';
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
 
-/**
- * Generated class for the Hometab tabs.
- *
- * See https://angular.io/docs/ts/latest/guide/dependency-injection.html for
- * more info on providers and Angular DI.
- */
+
 @Component({
   selector: 'page-hometab',
   templateUrl: 'hometab.html'
@@ -24,6 +20,10 @@ export class Hometab {
   tab3Root: any = Comments;
   tab4Root: any = Setting;
 
-  constructor(public navCtrl: NavController) {}
+  tDictionary : any;
+
+  constructor(public navCtrl: NavController, public sDictionary: DictionaryService) {
+    this.tDictionary = sDictionary;
+  }
 
 }

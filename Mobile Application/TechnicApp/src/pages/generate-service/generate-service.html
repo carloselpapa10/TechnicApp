@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Generate Service</ion-title>
+    <ion-title>{{tDictionary.dictionary.TEXT_GENENERATE_SER}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,40 +13,40 @@
     
     <form [formGroup]='myFormGenerate'>
       <ion-item>
-        <ion-label>Choose a service</ion-label>
+        <ion-label>{{tDictionary.dictionary.CHOOSE_SERVICE}}</ion-label>
         <!-- [(ngModel)]="serviceType" -->
         <ion-select formControlName="serviceType">
-          <ion-option value="r">Repair</ion-option>
-          <ion-option value="w">Warranty</ion-option>
-          <ion-option value="m">Maintenance</ion-option>
-          <ion-option value="i">Install</ion-option>
+          <ion-option value="r">{{tDictionary.dictionary.TEXT_REPAIR}}</ion-option>
+          <ion-option value="w">{{tDictionary.dictionary.TEXT_WARRANTY}}</ion-option>
+          <ion-option value="m">{{tDictionary.dictionary.TEXT_MAINTENANCE}}</ion-option>
+          <ion-option value="i">{{tDictionary.dictionary.TEXT_INSTALL}}</ion-option>
         </ion-select>
       </ion-item>
       
       <ion-item>
-        <ion-label>Payment Method</ion-label>
+        <ion-label>{{tDictionary.dictionary.PAYMENT_METHOD}}</ion-label>
         <!-- [(ngModel)]="paymentMethod"  -->
         <ion-select formControlName="paymentMethod">
-          <ion-option value="1">Card</ion-option>
-          <ion-option value="0">Cash</ion-option>
+          <ion-option value="1">{{tDictionary.dictionary.TEXT_CARD}}</ion-option>
+          <ion-option value="0">{{tDictionary.dictionary.TEXT_CASH}}</ion-option>
         </ion-select>
       </ion-item>
       
-      <ion-item>
-        <ion-icon [name]="myIcon" (click)="takeImage()"></ion-icon>
-        Add an image
-      </ion-item>
+      <button ion-item (click)="takeImage()">
+          <ion-icon [name]="myIcon"></ion-icon>
+          {{tDictionary.dictionary.ADD_IMAGE}}
+      </button>
 
       <ion-item>
-        <ion-label>Send location</ion-label>
+        <ion-label>{{tDictionary.dictionary.SEND_LOCATION}}</ion-label>
         <ion-checkbox color="dark" formControlName="location" (ionChange)="saveLocation($event)"></ion-checkbox>
       </ion-item>
 
     </form>
-    <button ion-button block round full (click)="generate_service()" >Generate</button>
+    <button ion-button block round full (click)="generate_service()" >{{tDictionary.dictionary.GENERATE}}</button>
     
     <ion-item text-wrap no-lines *ngIf="!myFormGenerate.controls.serviceType.valid  && (myFormGenerate.controls.serviceType.dirty || submitAttempt) || !myFormGenerate.controls.paymentMethod.valid  && (myFormGenerate.controls.paymentMethod.dirty || submitAttempt)">
-        <p>You should choose both a service and a Payment Method to generate a new Service.</p>
+        <p>{{tDictionary.dictionary.ERROR_CHOOSE_BOTH}}</p>
     </ion-item>
     
 </ion-content>

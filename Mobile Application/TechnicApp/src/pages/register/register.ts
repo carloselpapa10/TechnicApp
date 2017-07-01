@@ -29,11 +29,11 @@ export class Register {
               public sDictionary: DictionaryService) {
                 
     this.myFormRegister = builder.group({
-          'id': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(10) ,Validators.required, Validators.pattern('([0-9]*)')])],
-          'name': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(10) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
-          'lastname': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(10) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
-          'username': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(10) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
-          'password': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(10),Validators.required])],
+          'id': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(15) ,Validators.required, Validators.pattern('([0-9]*)')])],
+          'name': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(15) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
+          'lastname': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(20) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
+          'username': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(20) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
+          'password': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(20),Validators.required])],
           'email': ['', Validators.compose([Validators.required, EmailValidator.isValidMailFormat])],
           'id_category': ['', Validators.compose([Validators.required])]
         });

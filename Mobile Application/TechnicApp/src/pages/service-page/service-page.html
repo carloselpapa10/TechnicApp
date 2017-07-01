@@ -20,28 +20,28 @@
       {{service.product_name}}
       </ion-card-title>
     <p>
-      Below there are all the information about the service. <br>
+      {{tDictionary.dictionary.MSG_SER_PAG}}<br>
       <b>ID: </b>{{service.id}} <br>
-      <b>Date: </b>{{service.date}}<br>
-      <b>Cost: </b>{{service.cost}}<br>
-      <b>Payment Method :</b> {{service.payment_method}}<br>
-      <b>Status :</b> {{service.status}}<br>
-      <b>Technic Data</b><br>
-      <b>Name:</b> {{service.technic_name}}<br>
-      <b>Phone:</b> {{service.technic_phone}}<br>
+      <b>{{tDictionary.dictionary.TEXT_DATE}}: </b>{{service.date}}<br>
+      <b>{{tDictionary.dictionary.TEXT_COST}}: </b>{{service.cost}}<br>
+      <b>{{tDictionary.dictionary.PAYMENT_METHOD}} :</b> {{service.payment_method}}<br>
+      <b>{{tDictionary.dictionary.TEXT_STATUS}} :</b> {{service.status}}<br>
+      <b>{{tDictionary.dictionary.TECHNIC_DATA}}</b><br>
+      <b>{{tDictionary.dictionary.NAME}}:</b> {{service.technic_name}}<br>
+      <b>{{tDictionary.dictionary.TEXT_PHONE}}:</b> {{service.technic_phone}}<br>
     </p>
     <br>
     <form [formGroup]='myFormService'>
       <ion-list>
         <ion-item full>
-          <ion-textarea rows="3" formControlName="message" name="message" aria-placeholder="write a message..."></ion-textarea>
+          <ion-textarea rows="3" formControlName="message" name="message" placeholder="{{tDictionary.dictionary.WRITE_MESG}}"></ion-textarea>
         </ion-item>
       </ion-list>
       <ion-item *ngIf="!myFormService.controls.message.valid  && (myFormService.controls.message.dirty || submitAttempt)">
-        <p>Enter a text...</p>
+        <p>{{tDictionary.dictionary.ENTER_MESG}}</p>
       </ion-item>
     </form>
-    <button ion-button block round full (click)="sendMessage()">Send Message</button>   
+    <button ion-button block round full (click)="sendMessage()">{{tDictionary.dictionary.SEND_MSG}}</button>   
     
   </ion-card-content>
 </ion-card>

@@ -22,7 +22,6 @@ export class Login {
 
     loader:any;
     myFormLogin: FormGroup;
-    private myData: any;
     submitAttempt: boolean = false;
     tDictionary : any;
 
@@ -32,8 +31,8 @@ export class Login {
 
                 console.log("constructor");
         this.myFormLogin = builder.group({
-          'username': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(10) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
-          'password': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(10),Validators.required])],
+          'username': ['', Validators.compose([Validators.minLength(3), Validators.maxLength(20) ,Validators.required, Validators.pattern('[a-zA-Z]*')])],
+          'password': ['', Validators.compose([Validators.minLength(4), Validators.maxLength(20),Validators.required])],
         });
                 
         let elements = document.querySelectorAll(".tabbar");
@@ -91,7 +90,7 @@ export class Login {
   
   presentLoading() {
     this.loader = this.loadingCtrl.create({
-      content: "Authenticating..."
+      content: this.tDictionary.get("TEXT_AUTH")
     });
     this.loader.present();
   }

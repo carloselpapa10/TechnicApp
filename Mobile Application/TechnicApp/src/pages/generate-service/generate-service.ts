@@ -10,7 +10,7 @@ import { AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { UUID } from 'angular2-uuid';
-        
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
 
 @IonicPage()
 @Component({
@@ -30,10 +30,12 @@ export class GenerateService {
     location : any;
 
     submitAttempt: boolean = false;
+    tDictionary : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public generate: Generate, 
               private fileChooser: FileChooser, private builder: FormBuilder,private geolocation: Geolocation,
-              public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+              public loadingCtrl: LoadingController, public alertCtrl: AlertController,
+              public sDictionary: DictionaryService) {
 
      this.myFormGenerate = builder.group({
           'serviceType': ['', Validators.compose([Validators.required])],
@@ -43,6 +45,7 @@ export class GenerateService {
 
     this.tabBarElement = document.querySelector('.tabbar.show-tabbar');
     this.product = navParams.get('product');
+    this.tDictionary = sDictionary;
     
   }
   
@@ -101,9 +104,9 @@ export class GenerateService {
                     console.log(data);
                     if(data=='0'){
                       let alert = this.alertCtrl.create({
-                        title: 'The service has been generated!',
-                        subTitle: 'Now you can check on services view!',
-                        buttons: ['OK']
+                        title: this.tDictionary.get("TEXT_SERVICE_GEN"),
+                        subTitle: this.tDictionary.get("TEXT_CHECK_SERV"),
+                        buttons: [this.tDictionary.get("OKC")]
                       });
                       alert.present();
                       this.navCtrl.pop();
@@ -111,9 +114,9 @@ export class GenerateService {
 
                     }else{
                        let alert = this.alertCtrl.create({
-                        title: 'Error!',
-                        subTitle: 'Error to generate a service!',
-                        buttons: ['OK']
+                        title: this.tDictionary.get("ERROR"),
+                        subTitle: this.tDictionary.get("ERROR_GEN_SER"),
+                        buttons: [this.tDictionary.get("OKC")]
                       });
                       alert.present();
                     }
@@ -129,7 +132,7 @@ export class GenerateService {
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      content: this.tDictionary.get("WAIT"),
       duration: 2000
     });
     loader.present();

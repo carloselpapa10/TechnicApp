@@ -22,7 +22,7 @@ import { Products } from '../pages/products/products';
 import { Services } from '../pages/services/services';
 import { Comments } from '../pages/comments/comments';
 import { Setting } from '../pages/setting/setting';
-
+import { ChangePassword } from '../pages/change-password/change-password';
 import { GenerateService } from '../pages/generate-service/generate-service';
 import { ServicePage } from '../pages/service-page/service-page';
 
@@ -48,7 +48,8 @@ import {DictionaryModule} from '../modules/dictionary/dictionary.module'
     Comments,
     Setting,
     GenerateService,
-    ServicePage
+    ServicePage,
+    ChangePassword
   ],
   imports: [
     BrowserModule,
@@ -69,7 +70,8 @@ import {DictionaryModule} from '../modules/dictionary/dictionary.module'
     Comments,
     Setting,
     GenerateService,
-    ServicePage
+    ServicePage,
+    ChangePassword
   ],
   providers: [
     StatusBar,

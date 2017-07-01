@@ -5,6 +5,8 @@ import { Storage } from '@ionic/storage';
 import { Service } from '../../providers/service';
 import { ServicePage } from '../service-page/service-page';
 
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
+
 @IonicPage()
 @Component({
   selector: 'page-services',
@@ -15,8 +17,10 @@ export class Services {
   host : any;
   user : any;
   services : any;
+  tDictionary : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private service: Service) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, private service: Service,
+              public sDictionary: DictionaryService) {
     storage.ready().then(() => {
        storage.get('hostserver').then((val) => {
         this.host = val;        
@@ -34,6 +38,7 @@ export class Services {
             );
        })
      });
+     this.tDictionary = sDictionary;
 
   }
 

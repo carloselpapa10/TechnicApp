@@ -1,14 +1,14 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Products</ion-title>
+  <ion-navbar *ngIf="tDictionary.dictionary != null">
+    <ion-title>{{tDictionary.dictionary.TITLE_PRODUCT}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>    <!-- myInput.value -->
-    <ion-searchbar #myInput [(ngModel)]="searchProductString" (ionInput)="searchProduct($event)" placeholder="Search" autocorrect="off"></ion-searchbar>
+<ion-content padding *ngIf="tDictionary.dictionary != null">    <!-- myInput.value -->
+    <ion-searchbar #myInput [(ngModel)]="searchProductString" (ionInput)="searchProduct($event)" placeholder="{{tDictionary.dictionary.SEARCH}}" autocorrect="off"></ion-searchbar>
     <ion-list *ngIf="products?.length > 0">
       
       <p *ngIf="products[0].error == 0">
@@ -18,11 +18,11 @@
           </ion-thumbnail>
           <h2>{{product.name}}</h2>
           <p>{{product.description}}</p>
-          <button ion-button clear item-right (click)="selectedItem(product)">View</button>
+          <button ion-button clear item-right (click)="selectedItem(product)">{{tDictionary.dictionary.VIEW}}</button>
         </ion-item>
       </p>   
       <p *ngIf="products[0].error == 1">
-        There is not any product related with your category!
+        {{tDictionary.dictionary.NO_PRODUCT}}
       </p>   
     </ion-list>
     
