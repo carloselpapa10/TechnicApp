@@ -1,9 +1,4 @@
-b<!--
-  Generated template for the Recovery page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar *ngIf="tDictionary.dictionary != null">
@@ -21,15 +16,15 @@ b<!--
     <form [formGroup]='myFormRecovery'>
       <ion-list no-lines>
           <ion-item>
-            <ion-input type="text" formControlName="username" placeholder="{{tDictionary.dictionary.USERNAME}}" name="username"></ion-input>
+              <ion-input type="text" formControlName="id" placeholder="{{tDictionary.dictionary.IDENTIFICATION}}" name="id"></ion-input>
           </ion-item>
       </ion-list>
     </form>
 
     <button ion-button block round full color="primary" (click)="recovery_password()">{{tDictionary.dictionary.TITLE_RECOVERY}}</button>
 
-    <p *ngIf="!myFormRecovery.controls.username.valid  && (myFormRecovery.controls.username.dirty || submitAttempt)">
-      {{tDictionary.dictionary.REG_USERNAME_VALIDATION}}
+    <p *ngIf="!myFormRecovery.controls.id.valid  && (myFormRecovery.controls.id.dirty || submitAttempt)">
+      {{tDictionary.dictionary.REG_ID_VALIDATION}}
     </p>
   </div>
 </div>

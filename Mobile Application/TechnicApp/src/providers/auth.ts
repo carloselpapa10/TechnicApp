@@ -37,4 +37,11 @@ export class Auth {
     return response;
   }
 
+  recoveryPassword(sId){
+    var url = this.host+'/RecoveryPassword.php?sId='+sId;
+    console.log(url);
+    var response = this.http.get(url).map(res => res.json());
+    return response;
+  }
+
 }

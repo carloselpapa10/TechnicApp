@@ -9,12 +9,6 @@ import { AlertController } from 'ionic-angular';
 
 import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
 
-/**
- * Generated class for the Recovery page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-recovery',
@@ -31,7 +25,7 @@ export class Recovery {
               public alertCtrl: AlertController) {
 
     this.myFormRecovery = builder.group({
-          'username': ['', Validators.compose([Validators.required])]         
+          'id': ['', Validators.compose([Validators.required,Validators.pattern('([0-9]*)')])]         
         });
         this.tDictionary = sDictionary;
   }
@@ -46,7 +40,38 @@ export class Recovery {
     if(!this.myFormRecovery.valid){
       console.log("it is not valid");
       return null;
-    } 
+    }
+
+    this.presentLoading();
+    this.auth.recoveryPassword(this.myFormRecovery.controls.id.value).subscribe(
+      data => {
+        console.log(data);
+        if(data.new_password != "0"){
+          let alert = this.alertCtrl.create({
+            title: this.tDictionary.get("RECOVERY")+'!',
+            subTitle: this.tDictionary.get("TEXT_REC_NEW_PWD")+data.new_password,
+            buttons: [this.tDictionary.get("OKC")]
+          });
+          alert.present();
+          this.navCtrl.pop();
+        }else{
+          console.log("holoo");
+          let alert = this.alertCtrl.create({
+            title: this.tDictionary.get("RECOVERY")+'!',
+            subTitle: this.tDictionary.get("TEXT_REC_ERR_NEW_PWD"),
+            buttons: [this.tDictionary.get("OKC")]
+          });
+          alert.present();
+        }
+      }
+    );
   }
 
+ presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: this.tDictionary.get("WAIT"),
+      duration: 2000
+    });
+    loader.present();
+  }
 }

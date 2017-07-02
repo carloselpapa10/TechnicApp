@@ -95,7 +95,7 @@ class technic{
 	
 	public function register($id,$name,$lastname,$username,$password,$phone,$photo,$email,$address,$id_category){	
 		
-		$query="SELECT * FROM `user` WHERE `id`='$id'";		
+		$query="SELECT * FROM `user` WHERE `id`='$id' or `username`='$username'";		
 		if(mysql_num_rows(mysql_query($query))>0){
 			return 1;
 		}else{

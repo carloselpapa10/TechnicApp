@@ -88,5 +88,9 @@
     "ERROR_GEN_SER":"Errore, il servizio non è stato generato",
     "TEXT_CHECK_SERV":"Ora puoi vedere il servizio nella relativa sezione",
     "TEXT_SERVICE_GEN":"Il servizio è stato generato!",
+    "TEXT_USR_RGRD":"L'utente è stato registrato!",
+    "TEXT_USR_NO_RGRD":"Errore! L'utente non è stato registrato!",
+    "TEXT_REC_NEW_PWD":"TechnicApp ha generato una nueva clave para ti! : ",
+    "TEXT_REC_ERR_NEW_PWD":"Error! L'identificazione non esiste",
     "TITLE_RECOVERY": "Recupero"
 } 

@@ -65,20 +65,19 @@ export class Register {
         console.log(data);
         if(data=='0'){
           let alert = this.alertCtrl.create({
-            title: 'Register!',
-            subTitle: 'The user has been registered!',
-            buttons: ['OK']
+            title: this.tDictionary.get("REGISTER")+'!',
+            subTitle: this.tDictionary.get("TEXT_USR_RGRD"),
+            buttons: [this.tDictionary.get("OKC")]
           });
           alert.present();
           this.navCtrl.pop();
         }else{
           let alert = this.alertCtrl.create({
-            title: 'Register!',
-            subTitle: 'Error! The user has not been registered!',
-            buttons: ['OK']
+            title: this.tDictionary.get("REGISTER")+'!',
+            subTitle: this.tDictionary.get("TEXT_USR_NO_RGRD"),
+            buttons: [this.tDictionary.get("OKC")]
           });
           alert.present();
-          this.navCtrl.pop();
         }
       }
     );
@@ -86,7 +85,7 @@ export class Register {
 
   presentLoading() {
     let loader = this.loadingCtrl.create({
-      content: "Please wait...",
+      content: this.tDictionary.get("WAIT"),
       duration: 2000
     });
     loader.present();

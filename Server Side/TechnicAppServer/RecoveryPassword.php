@@ -6,7 +6,15 @@ header("Access-Control-Allow-Origin: *");
 
 $id = $_REQUEST['sId'];
 $t = new technic();
-echo $t->recoveryPassword($id);
+
+
+echo '{"new_password":"'.$t->recoveryPassword($id).'"}';
+/*
+if($t->recoveryPassword($id) != 0){
+	echo '{"new_password":'.$t->recoveryPassword($id).'}';
+}else{
+	echo 0;
+}*/
 
 include("database/close_connection.php");
 /*
