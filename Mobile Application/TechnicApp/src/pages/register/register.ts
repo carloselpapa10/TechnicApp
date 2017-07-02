@@ -6,7 +6,6 @@ import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
 import { Auth } from '../../providers/auth';
-import { UsernameValidator } from  '../../validators/username';
 import { EmailValidator }    from  '../../validators/email-validator';
 
 import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';

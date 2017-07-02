@@ -20,7 +20,7 @@
     "TEXT_WARRANTY":"Garantía",
     "TEXT_MAINTENANCE":"Mantenimiento",
     "TEXT_INSTALL":"Instalar",
-    "CHOOSE_SERVICE":"Elegir una servicio",
+    "CHOOSE_SERVICE":"Elegir un servicio",
     "PAYMENT_METHOD":"Forma de Pago",
     "TEXT_CARD":"Tarjeta",
     "TEXT_CASH":"Efectivo",
@@ -80,12 +80,13 @@
     "NO_PIC_CHANGED": "Error al cambiar la foto de perfil",
     "YES_MESSAGE": "El mensaje ha sido eliminado!",
     "NO_MESSAGE": "Ocurrió un error en el servidor!",
-    "TITLE_COMMENT": "Commentarios",
-    "DELETE_COMMENT": "Elimianr",
+    "TITLE_COMMENT": "Comentarios",
+    "DELETE_COMMENT": "Eliminar",
     "NO_COMMENT": "No hay ningún comentario relacionado con la categoría!",
     "TITLE_PRODUCT": "Productos",
     "NO_PRODUCT": "No hay ningún producto relacionado con la categoría!",
     "ERROR_GEN_SER":"Error al generar un servicio!",
     "TEXT_CHECK_SERV":"Ahora puedes verlo en la vista de servicios",
-    "TEXT_SERVICE_GEN":"El servicio ha sido generado!"
+    "TEXT_SERVICE_GEN":"El servicio ha sido generado!",
+    "TITLE_RECOVERY": "Recuperar"
 } 

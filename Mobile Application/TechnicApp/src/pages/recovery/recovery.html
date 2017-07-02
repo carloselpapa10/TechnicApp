@@ -1,4 +1,4 @@
-<!--
+b<!--
   Generated template for the Recovery page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -6,8 +6,8 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Recovery</ion-title>
+  <ion-navbar *ngIf="tDictionary.dictionary != null">
+    <ion-title>{{tDictionary.dictionary.TITLE_RECOVERY}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,20 +16,20 @@
 <ion-content padding>
 
   <div class="full-height">
-  <div class="flex-item my-form">
+  <div class="flex-item my-form" *ngIf="tDictionary.dictionary != null">
 
     <form [formGroup]='myFormRecovery'>
       <ion-list no-lines>
           <ion-item>
-            <ion-input type="text" formControlName="username" placeholder="USERNAME" name="username"></ion-input>
+            <ion-input type="text" formControlName="username" placeholder="{{tDictionary.dictionary.USERNAME}}" name="username"></ion-input>
           </ion-item>
       </ion-list>
     </form>
 
-    <button ion-button block round full color="primary" (click)="recovery_password()">Recovery</button>
+    <button ion-button block round full color="primary" (click)="recovery_password()">{{tDictionary.dictionary.TITLE_RECOVERY}}</button>
 
     <p *ngIf="!myFormRecovery.controls.username.valid  && (myFormRecovery.controls.username.dirty || submitAttempt)">
-      Please enter a valid password.
+      {{tDictionary.dictionary.REG_USERNAME_VALIDATION}}
     </p>
   </div>
 </div>

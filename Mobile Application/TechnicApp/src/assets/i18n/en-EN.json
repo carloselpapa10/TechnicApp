@@ -87,5 +87,6 @@
     "NO_PRODUCT": "There is not any product related with your category!",
     "ERROR_GEN_SER":"Error to generate a service!",
     "TEXT_CHECK_SERV":"Now you can check on services view",
-    "TEXT_SERVICE_GEN":"The service has been generated!"
+    "TEXT_SERVICE_GEN":"The service has been generated!",
+    "TITLE_RECOVERY": "Recovery"
 } 

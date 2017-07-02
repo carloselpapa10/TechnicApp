@@ -7,6 +7,8 @@ import { Storage } from '@ionic/storage';
 import { LoadingController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 
+import {DictionaryService} from '../../modules/dictionary/providers/dictionary.service';
+
 /**
  * Generated class for the Recovery page.
  *
@@ -22,14 +24,16 @@ export class Recovery {
 
   myFormRecovery: FormGroup;
   submitAttempt: boolean = false;
+  tDictionary : any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private builder: FormBuilder, 
-              public loadingCtrl: LoadingController, public auth: Auth, public storage: Storage, 
+              public loadingCtrl: LoadingController, public auth: Auth, public storage: Storage, public sDictionary: DictionaryService, 
               public alertCtrl: AlertController) {
 
     this.myFormRecovery = builder.group({
           'username': ['', Validators.compose([Validators.required])]         
         });
+        this.tDictionary = sDictionary;
   }
 
   ionViewDidLoad() {
