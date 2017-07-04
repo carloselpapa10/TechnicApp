@@ -36,6 +36,19 @@
         </ion-select>
 
     </ion-item>
+
+
+    <ion-list>
+      <ion-item *ngIf=" user != null">
+        <ion-label>{{tDictionary.dictionary.LANGUAGE}}</ion-label>
+        <ion-select [(ngModel)]="preferredLanguage" (ngModelChange)="onChangeLanguage($event)">
+          <ion-option *ngFor="let lang of languages" value="{{lang.value}}">
+            {{lang.label}}
+          </ion-option>          
+        </ion-select>
+
+    </ion-item>
+        </ion-list>
     
     <button ion-button block round (click)="logout()">{{tDictionary.dictionary.BTN_LOGOUT}}</button>
 </ion-content>

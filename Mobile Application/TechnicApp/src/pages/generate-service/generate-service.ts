@@ -95,7 +95,12 @@ export class GenerateService {
       //this.myFormRegister.controls.id.value
 
       if(! this.myFormGenerate.controls.location.value) this.coords_location="";
-      if(this.myFormGenerate.controls.location.value != null) this.generate.upload(this.uri,this.imageName = UUID.UUID()+".jpg");
+
+      if(this.uri != null){
+        this.generate.upload(this.uri,this.imageName = UUID.UUID()+".jpg");
+      }
+      
+      
       
       this.presentLoading();
       setTimeout(() => {

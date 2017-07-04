@@ -25,8 +25,8 @@ export class Generate {
   generateService(sPayment_method, sService, sImage, sLocation, sId_product){
     
     console.log("sPayment_method => "+sPayment_method+ " sService=> "+sService+" sImage=> "+sImage+" sLocation=>"+sLocation+" sId_product=>"+sId_product);
-    
     var url = this.host+'/GenerateService.php?sPayment_method='+sPayment_method+'&sService='+sService+'&sImage='+sImage+'&sLocation='+sLocation+'&sId_user='+this.user.id+'&sId_product='+sId_product;
+    console.log(url);
     var response = this.http.get(url).map(res => res.json());
     return response;
   }

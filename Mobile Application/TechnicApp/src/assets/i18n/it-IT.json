@@ -92,5 +92,6 @@
     "TEXT_USR_NO_RGRD":"Errore! L'utente non è stato registrato!",
     "TEXT_REC_NEW_PWD":"TechnicApp ha generato una nueva clave para ti! : ",
     "TEXT_REC_ERR_NEW_PWD":"Error! L'identificazione non esiste",
+    "LANGUAGE": "Lingua",
     "TITLE_RECOVERY": "Recupero"
 } 

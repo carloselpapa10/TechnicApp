@@ -15,6 +15,7 @@ import { LoadingController } from 'ionic-angular';
 import { SettingProvider } from '../../providers/setting-provider';
 
 import { DictionaryService } from '../../modules/dictionary/providers/dictionary.service';
+import {Language} from '../../modules/dictionary/types';
 
 @IonicPage()
 @Component({
@@ -32,7 +33,8 @@ export class Setting {
   myIcon: string = "md-add-circle";
   passIcon: string = "md-key";
   tDictionary: any;
-
+  languages: Language[] = [];
+  preferredLanguage: string = "";
   loader:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public storage: Storage, public generate: Generate, public loadingCtrl: LoadingController,
@@ -61,6 +63,8 @@ export class Setting {
     });
     this.tDictionary = sDictionary;
     console.log(sDictionary);
+    this.languages = this.sDictionary.getLanguages();
+    this.preferredLanguage = this.sDictionary.getPreferredLanguage();
 
   }
 
@@ -72,6 +76,7 @@ export class Setting {
         })
       });
     }
+    //this.tDictionary = this.sDictionary;
   }
 
   ionViewDidLoad() {
@@ -176,5 +181,25 @@ export class Setting {
     });
     this.loader.present();
   }
+
+  onChangeLanguage(lang) {
+        console.log(lang);
+        this.preferredLanguage = lang;
+        
+        const loading = this.loadingCtrl.create({content: this.sDictionary.get("WAIT") });
+        loading.present();
+        
+        setTimeout(() => {
+          this.sDictionary.setPreferredLanguage(this.preferredLanguage)
+            .then(() => {                
+                loading.dismiss();
+            })
+            .catch(() => {
+                console.log("error change language");
+                loading.dismiss();
+            });
+        },1000);
+        
+    }
 
 }

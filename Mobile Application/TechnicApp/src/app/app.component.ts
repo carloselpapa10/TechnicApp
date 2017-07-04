@@ -20,8 +20,9 @@ export class MyApp {
   
     storage.ready().then(() => {
        //storage.set('hostserver', 'https://technicapp.000webhostapp.com');
-       //storage.set('hostserver', 'http://localhost/TechnicAppserver');
-       storage.set('hostserver', 'http://192.168.0.7/TechnicAppserver');
+       storage.set('hostserver', 'http://localhost/TechnicAppserver');
+       //storage.set('hostserver', 'http://192.168.0.7/TechnicAppserver');
+       //storage.set('hostserver', 'http://10.170.12.109/TechnicAppserver');
        //storage.set('hostserver', 'http://192.168.43.12/TechnicAppserver');
      });
     

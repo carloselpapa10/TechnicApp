@@ -72,7 +72,8 @@ export class Products {
             }
           );
         })
-      });
+      }); 
+      this.tDictionary = this.sDictionary;     
     }
   }
 
